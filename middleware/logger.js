@@ -7,7 +7,7 @@ const path = require('path');
 const logEvents = async(message, logFileName)=>{
         const dateTime = format(new Date(),'dd-MM-yyyy\tHH:mm:ss');
         const logItem = `${dateTime}\t${uuid()}\t${message}\n`;
-
+        
         try{
                 if(!fs.existsSync(path.join(__dirname, '..', 'logs'))){
                         await fsPromises.mkdir(path.join(__dirname, '..', 'logs'))
@@ -16,8 +16,7 @@ const logEvents = async(message, logFileName)=>{
         }
         catch (err){
                 console.log(err)
-        };
-        
+        };        
 }
 
 const logger = (req, res, next)=>{
