@@ -3,13 +3,14 @@ const app = express();
 const path = require("path")
 const cookieParser = require("cookie-parser")
 const CORS = require("cors")
+const corsOptions = require("./config/corsOptions")
 const {logger} = require("./middleware/logger")
 const errorHandler = require("./middleware/errorHandler")
 const PORT =  process.env.PORT || 3500;
 
 app.use(logger);
 
-app.use(CORS())
+app.use(CORS(corsOptions))
 
 app.use(cookieParser())
 
